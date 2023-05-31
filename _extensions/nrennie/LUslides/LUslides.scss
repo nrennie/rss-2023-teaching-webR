@@ -32,6 +32,18 @@ $body-bg: #ffffff;
 
 /*-- scss:rules --*/
 
+.btn-webr {
+  background-color: $code-block-bg !important;
+  border-color: $link-color;
+  border-width: 3px;
+  border-radius: 15px !important;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-family: $font-family-sans-serif;
+  font-size: 20px;
+  cursor:pointer;
+}
+
 .reveal .slides {
   padding: 30px;
   width: 80% !important;
