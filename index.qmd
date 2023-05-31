@@ -1,6 +1,6 @@
 ---
 title: "Teaching statistics interactively with webR"
-subtitle: "RSS Interantional Conference 2023"
+subtitle: "RSS International Conference 2023"
 author: "Nicola Rennie"
 format:
   LUslides-revealjs:
@@ -13,16 +13,16 @@ filters:
   - webr
 ---
 
-## 
+## Teaching statistics with R
 
 
 ## What is webR?
 
-- [webR](https://docs.r-wasm.org/webr/latest/) is 
+- [webR](https://docs.r-wasm.org/webr/latest/)
 
-- You can run R code in a web browser
+- Run R code in a web browser
 
-  - no installation
+  - no installation required
   
   - no server required
   
@@ -40,5 +40,19 @@ mean(x)
 ```
 
 ## How can we use webR for teaching?
+
+## Is it difficult to build?
+
+## Example
+
+```{webr-r}
+# calculate confidence interval
+signif <- 0.95
+ci <- confint(lm(x ~ 1), level = signif)
+
+# plot
+hist(x)
+abline(v = c(ci[1], mean(x), ci[2]), col=c("blue", "red", "blue"), lwd = 2)
+```
 
 
