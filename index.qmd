@@ -1,0 +1,44 @@
+---
+title: "Teaching statistics interactively with webR"
+subtitle: "RSS Interantional Conference 2023"
+author: "Nicola Rennie"
+format:
+  LUslides-revealjs:
+    disable-layout: true
+    margin-right: "20"
+    footer: "[teaching-with-webr.netlify.app](https://teaching-with-webr.netlify.app/)"
+execute: 
+  echo: true
+filters:
+  - webr
+---
+
+## 
+
+
+## What is webR?
+
+- [webR](https://docs.r-wasm.org/webr/latest/) is 
+
+- You can run R code in a web browser
+
+  - no installation
+  
+  - no server required
+  
+## Try it!
+
+[teaching-with-webr.netlify.app](https://teaching-with-webr.netlify.app/)
+
+```{webr-r}
+# set a random seed and generate data
+set.seed(123)
+x <- rnorm(100)
+
+# calculate mean
+mean(x)
+```
+
+## How can we use webR for teaching?
+
+
