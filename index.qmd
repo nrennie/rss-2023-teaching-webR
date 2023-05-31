@@ -45,6 +45,9 @@ mean(x)
 
 ## Example
 
+
+## Confidence intervals in webR
+
 ```{webr-r}
 # calculate confidence interval
 signif <- 0.95
@@ -54,5 +57,28 @@ ci <- confint(lm(x ~ 1), level = signif)
 hist(x)
 abline(v = c(ci[1], mean(x), ci[2]), col=c("blue", "red", "blue"), lwd = 2)
 ```
+
+## Questions?
+
+::: columns
+::: {.column}
+
+<br>
+
+{{< fa brands twitter >}} [@nrennie35](https://twitter.com/nrennie35)
+
+{{< fa brands github >}} [nrennie](https://github.com/nrennie)
+
+{{< fa globe >}} [nrennie.rbind.io](https://nrennie.rbind.io/)
+
+{{< fa briefcase >}} [chicas.lancaster-university.uk](https://chicas.lancaster-university.uk/)
+
+:::
+::: {.column}
+
+![](images/qr_code.png){fig-align="center" fig-alt="QR code" width=70%}
+
+:::
+:::
 
 

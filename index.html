@@ -6,7 +6,9 @@
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="index_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="index_files/libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Nicola Rennie">
@@ -471,9 +473,110 @@ mean(x)`,
 </section>
 <section id="example" class="slide level2">
 <h2>Example</h2>
-<p>t-tests</p>
+</section>
+<section id="confidence-intervals-in-webr" class="slide level2">
+<h2>Confidence intervals in webR</h2>
+<button class="btn btn-default btn-webr" disabled="" type="button" id="webr-run-button-2">Loading webR...</button>
+<div id="webr-editor-2"></div>
+<div id="webr-code-output-2"><pre style="visibility: hidden"></pre></div>
+<script type="module">
+  const runButton = document.getElementById("webr-run-button-2");
+  const outputDiv = document.getElementById("webr-code-output-2");
+  const editorDiv = document.getElementById("webr-editor-2");
 
-<img src="_extensions/nrennie/LUslides/CHICASlogo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+  const editor = CodeMirror((elt) => {
+    elt.style.border = "1px solid #eee";
+    elt.style.height = "auto";
+    editorDiv.append(elt);
+  },{
+    value: `# calculate confidence interval
+signif <- 0.95
+ci <- confint(lm(x ~ 1), level = signif)
+
+# plot
+hist(x)
+abline(v = c(ci[1], mean(x), ci[2]), col=c("blue", "red", "blue"), lwd = 2)`,
+    lineNumbers: false,
+    mode: "r",
+    theme: "light default",
+    viewportMargin: Infinity,
+  });
+
+  runButton.onclick = async () => {
+    runButton.disabled = true;
+    let canvas = undefined;
+    await globalThis.webR.init();
+    await webR.evalRVoid("canvas(width=504, height=360)");
+    const result = await webRCodeShelter.captureR(editor.getValue(), {
+      withAutoprint: true,
+      captureStreams: true,
+      captureConditions: false,
+      env: webR.objs.emptyEnv,
+    });
+    try {
+      await webR.evalRVoid("dev.off()");
+      const out = result.output.filter(
+        evt => evt.type == "stdout" || evt.type == "stderr"
+      ).map((evt) => evt.data).join("\n");
+
+      const msgs = await webR.flush();
+      msgs.forEach(msg => {
+        if (msg.type === "canvasExec"){
+          if (!canvas) {
+            canvas = document.createElement("canvas");
+            canvas.setAttribute("width", 2 * 504);
+            canvas.setAttribute("height", 2 * 360);
+            canvas.style.width="700px";
+            canvas.style.display="block";
+            canvas.style.margin="auto";
+          }
+          Function(`this.getContext("2d").${msg.data}`).bind(canvas)();
+        }
+      });
+
+      outputDiv.innerHTML = "";
+      const pre = document.createElement("pre");
+      if (/\S/.test(out)) {
+        const code = document.createElement("code");
+        code.innerText = out;
+        pre.appendChild(code);
+      } else {
+        pre.style.visibility = "hidden";
+      }
+      outputDiv.appendChild(pre);
+
+      if (canvas) {
+        const p = document.createElement("p");
+        p.appendChild(canvas);
+        outputDiv.appendChild(p);
+      }
+    } finally {
+      webRCodeShelter.purge();
+      runButton.disabled = false;
+    }
+  }
+</script>
+
+</section>
+<section id="questions" class="slide level2">
+<h2>Questions?</h2>
+<div class="columns">
+<div class="column">
+<p><br></p>
+<p><i class="fa-brands fa-twitter" aria-hidden="true"></i> <a href="https://twitter.com/nrennie35"><span class="citation" data-cites="nrennie35">@nrennie35</span></a></p>
+<p><i class="fa-brands fa-github" aria-hidden="true"></i> <a href="https://github.com/nrennie">nrennie</a></p>
+<p><i class="fa-solid fa-globe" aria-hidden="true"></i> <a href="https://nrennie.rbind.io/">nrennie.rbind.io</a></p>
+<p><i class="fa-solid fa-briefcase" aria-hidden="true"></i> <a href="https://chicas.lancaster-university.uk/">chicas.lancaster-university.uk</a></p>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/qr_code.png" style="width:70.0%" alt="QR code"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img src="_extensions/nrennie/LUslides/CHICASlogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
 <p><a href="https://teaching-with-webr.netlify.app/">teaching-with-webr.netlify.app</a></p>
 </div>
 </section>
