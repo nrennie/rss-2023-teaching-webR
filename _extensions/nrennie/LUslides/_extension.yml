@@ -4,9 +4,7 @@ version: 0.0.1
 contributes:
   formats: 
     revealjs:
-      logo: LUlogo.png
+      logo: CHICASlogo.png
       theme: LUslides.scss
-      height: 900
-      width: 1600
       title-slide-attributes:
         data-background-color: "#D9DBDB"
