@@ -436,7 +436,13 @@ Nicola Rennie
 </section>
 <section id="teaching-statistics-with-r" class="slide level2">
 <h2>Teaching statistics with R</h2>
-<p>intro page</p>
+<p>Many introductory (and more advanced) statistics courses also include instruction on using R.</p>
+<div class="fragment">
+<p>Many courses teach statistical concepts in lectures, then the practical aspects of using R in separate workshops with smaller groups.</p>
+</div>
+<div class="fragment">
+<p>Including programming examples in a lecture environment isn’t always easy.</p>
+</div>
 </section>
 <section id="teaching-statistics-with-r-1" class="slide level2">
 <h2>Teaching statistics with R</h2>
@@ -469,21 +475,63 @@ Nicola Rennie
 </section>
 <section id="teaching-statistics-with-r-4" class="slide level2">
 <h2>Teaching statistics with R</h2>
-<p>live coding</p>
+<p>Live coding!</p>
+<div class="fragment">
+<div class="columns">
+<div class="column">
+<p><strong>Pros</strong></p>
+<ul>
+<li><p>shows the process of writing code</p></li>
+<li><p>teaches students how to debug code</p></li>
+<li><p>demonstrates good programming practices</p></li>
+</ul>
+</div><div class="column">
+<p><strong>Cons</strong></p>
+<ul>
+<li><p>Switching between windows</p></li>
+<li><p>More pressure as a demonstrator</p></li>
+<li><p>Hard for students to run the code themselves</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section>
+<section id="webr" class="title-slide slide level1 center" data-background-color="#D9DBDB">
+<h1>webR</h1>
+
 </section>
 <section id="what-is-webr" class="slide level2">
 <h2>What is webR?</h2>
+<p><a href="https://docs.r-wasm.org/webr/latest/">webR</a> is a version of R that runs in a web browser.</p>
+<div class="fragment">
 <ul>
-<li><p><a href="https://docs.r-wasm.org/webr/latest/">webR</a></p></li>
-<li><p>Run R code in a web browser</p>
-<ul>
-<li><p>no installation required</p></li>
-<li><p>no server required</p></li>
-</ul></li>
+<li><p>You don’t need to install R.</p></li>
+<li><p>You don’t need to setup a server.</p></li>
+<li><p>It just works (even on your phone).</p></li>
 </ul>
+</div>
 </section>
-<section id="webr-examples" class="slide level2">
-<h2>webR examples</h2>
+<section id="what-can-you-do-with-webr" class="slide level2">
+<h2>What can you do with webR?</h2>
+<p>Lots of things!</p>
+<div class="fragment">
+<div class="columns">
+<div class="column">
+<ul>
+<li><p>Download R package datasets to .csv, .xlsx, … on-the-fly: <a href="https://tidyverse.r-universe.dev/ggplot2">tidyverse.r-universe.dev/ggplot2</a></p></li>
+<li><p>Shiny apps without a server: <a href="https://github.com/georgestagg/shiny-standalone-webr-demo">github.com/georgestagg/shiny-standalone-webr-demo</a></p></li>
+<li><p>Create interactive, engaging teaching materials (that work even in lecture environments).</p></li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/shiny.png" style="width:80.0%" alt="Screenshot of RStudio showing code"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="try-it" class="slide level2">
 <h2>Try it!</h2>
@@ -569,8 +617,8 @@ mean(x)`,
 </script>
 
 </section>
-<section id="confidence-intervals-in-webr" class="slide level2">
-<h2>Confidence intervals in webR</h2>
+<section id="example-confidence-intervals-in-webr" class="slide level2">
+<h2>Example: confidence intervals in webR</h2>
 <button class="btn btn-default btn-webr" disabled="" type="button" id="webr-run-button-2">Loading webR...</button>
 <div id="webr-editor-2"></div>
 <div id="webr-code-output-2"><pre style="visibility: hidden"></pre></div>
@@ -694,14 +742,32 @@ abline(v = c(ci[1], mean(x), ci[2]), col=c("blue", "red", "blue"), lwd = 2)`,
 </section>
 <section id="advantages-of-webr" class="slide level2">
 <h2>Advantages of webR</h2>
+<ul>
+<li><p>Write and run code without switching between slides and RStudio.</p></li>
+<li><p>Students can engage with code in lectures on their phones.</p></li>
+<li><p>No set up required for students (and easy to fix mistakes!)</p></li>
+<li><p>Use code blocks that are empty, have comments, or have pre-filled code.</p></li>
+</ul>
 </section>
 <section id="limitations-of-webr" class="slide level2">
 <h2>Limitations of webR</h2>
 <ul>
-<li>hosted not file</li>
-<li>internet</li>
-<li>packages (add code example)</li>
-<li>not a replacemnet for workshops/installing stuff</li>
+<li><p>Requires an internet connection.</p></li>
+<li><p>Not all packages available. See <a href="https://rud.is/w/webr-pkgs/">rud.is/w/webr-pkgs/</a>.</p></li>
+</ul>
+<div class="cell" data-eco="true">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>webr<span class="sc">::</span><span class="fu">install</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Not a replacement for workshops. Teaching R/RStudio/package installation is still important.</li>
+</ul>
+</section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
+<ul>
+<li><p>Tidyverse blog from George Stagg: <a href="https://www.tidyverse.org/blog/2023/03/webr-0-1-0/">www.tidyverse.org/blog/2023/03/webr-0-1-0/</a></p></li>
+<li><p>New York R Talk from Bob Rudis: <a href="https://rud.is/w/2023-nyr-webr/#/things-before-we-begin">rud.is/w/2023-nyr-webr</a></p></li>
+<li><p>Source code for these slides: <a href="https://github.com/nrennie/teaching-with-webR">github.com/nrennie/teaching-with-webR</a></p></li>
 </ul>
 </section>
 <section id="questions" class="slide level2">
@@ -722,11 +788,11 @@ abline(v = c(ci[1], mean(x), ci[2]), col=c("blue", "red", "blue"), lwd = 2)`,
 </div>
 </div>
 </div>
-<p><img src="_extensions/nrennie/LUslides/CHICASlogo.png" class="slide-logo"></p>
+<p><img src="_extensions/nrennie/LUstyle/CHICASlogo.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://teaching-with-webr.netlify.app/">teaching-with-webr.netlify.app</a></p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

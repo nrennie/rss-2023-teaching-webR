@@ -15,7 +15,15 @@ filters:
 
 ## Teaching statistics with R
 
-intro page
+Many introductory (and more advanced) statistics courses also include instruction on using R.
+
+. . . 
+
+Many courses teach statistical concepts in lectures, then the practical aspects of using R in separate workshops with smaller groups.
+
+. . . 
+
+Including programming examples in a lecture environment isn't always easy.
 
 ## Teaching statistics with R
 
@@ -68,7 +76,6 @@ Live coding!
 :::
 
 ::: {.column}
-:::
 
 **Cons**
 
@@ -80,20 +87,44 @@ Live coding!
 
 :::
 
+:::
+
 # webR {background-color="#D9DBDB"}
 
 ## What is webR?
 
-- [webR](https://docs.r-wasm.org/webr/latest/)
+[webR](https://docs.r-wasm.org/webr/latest/) is a version of R that runs in a web browser.
 
-- Run R code in a web browser
+. . .
 
-  - no installation required
-  
-  - no server required
-  
-## webR examples
-  
+* You don’t need to install R.
+
+* You don’t need to setup a server.
+
+* It just works (even on your phone).
+
+## What can you do with webR?
+
+Lots of things!
+
+. . . 
+
+::: columns
+::: {.column}
+
+* Download R package datasets to .csv, .xlsx, ... on-the-fly: [tidyverse.r-universe.dev/ggplot2](https://tidyverse.r-universe.dev/ggplot2)
+
+* Shiny apps without a server: [github.com/georgestagg/shiny-standalone-webr-demo](https://github.com/georgestagg/shiny-standalone-webr-demo)
+
+* Create interactive, engaging teaching materials (that work even in lecture environments).
+
+:::
+
+::: {.column}
+![](images/shiny.png){fig-align="center" fig-alt="Screenshot of RStudio showing code" width=80%}
+:::
+:::
+
 ## Try it!
 
 [teaching-with-webr.netlify.app](https://teaching-with-webr.netlify.app/)
@@ -107,7 +138,7 @@ x <- rnorm(100)
 mean(x)
 ```
 
-## Confidence intervals in webR
+## Example: confidence intervals in webR
 
 ```{webr-r}
 # calculate confidence interval
@@ -165,12 +196,35 @@ mean(x)
 
 ## Advantages of webR
 
+* Write and run code without switching between slides and RStudio.
+
+* Students can engage with code in lectures on their phones.
+
+* No set up required for students (and easy to fix mistakes!)
+
+* Use code blocks that are empty, have comments, or have pre-filled code.
+
 ## Limitations of webR
 
-- hosted not file
-- internet
-- packages (add code example)
-- not a replacemnet for workshops/installing stuff
+* Requires an internet connection.
+
+* Not all packages available. See [rud.is/w/webr-pkgs/](https://rud.is/w/webr-pkgs/).
+
+```{r}
+#| eval: false
+#| eco: true
+webr::install("dplyr")
+```
+
+* Not a replacement for workshops. Teaching R/RStudio/package installation is still important.
+
+## Resources
+
+* Tidyverse blog from George Stagg: [www.tidyverse.org/blog/2023/03/webr-0-1-0/](https://www.tidyverse.org/blog/2023/03/webr-0-1-0/)
+
+* New York R Talk from Bob Rudis: [rud.is/w/2023-nyr-webr](https://rud.is/w/2023-nyr-webr/#/things-before-we-begin)
+
+* Source code for these slides: [github.com/nrennie/teaching-with-webR](https://github.com/nrennie/teaching-with-webR)
 
 ## Questions?
 
