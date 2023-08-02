@@ -3,7 +3,7 @@ title: "Teaching statistics interactively with webR"
 subtitle: "RSS International Conference 2023"
 author: "Nicola Rennie"
 format:
-  LUslides-revealjs:
+  LUstyle-revealjs:
     disable-layout: true
     margin-right: "20"
     footer: "[teaching-with-webr.netlify.app](https://teaching-with-webr.netlify.app/)"

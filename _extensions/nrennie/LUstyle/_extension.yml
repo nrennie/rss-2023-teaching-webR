@@ -1,10 +1,10 @@
-title: Lancaster University Presentation Template
+title: Lancaster University Quarto Template
 author: Nicola Rennie
-version: 0.0.1
+version: 0.0.2
 contributes:
   formats: 
     revealjs:
       logo: CHICASlogo.png
-      theme: LUslides.scss
+      theme: LUstyle.scss
       title-slide-attributes:
         data-background-color: "#D9DBDB"
