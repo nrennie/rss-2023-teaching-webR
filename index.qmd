@@ -13,6 +13,36 @@ filters:
   - webr
 ---
 
+# Teaching statistics with R  {background-color="#D9DBDB"}
+
+## About me
+
+::: columns
+::: {.column .right}
+
+Lecturer in Health Data Science at [Lancaster Medical School](https://chicas.lancaster-university.uk/).
+
+<br>
+
+Academic background in statistics, with experience in data science consultancy.
+
+<br>
+
+Teaching students with mathematical and non-mathematical backgrounds, at a variety of levels, in both academia and industry. 
+
+<br>
+
+Blog about R and data science at [nrennie.rbind.io/blog](https://nrennie.rbind.io/blog/).
+
+:::
+
+::: {.column}
+
+![](images/CHICASlogo.png){fig-align="center" fig-alt="CHICAS logo" width=70%}
+
+:::
+:::
+
 ## Teaching statistics with R
 
 Many introductory (and more advanced) statistics courses also include instruction on using R.
@@ -25,15 +55,15 @@ Many courses teach statistical concepts in lectures, then the practical aspects 
 
 Including programming examples in a lecture environment isn't always easy.
 
-## Teaching statistics with R
+## Screenshots of RStudio
 
 ![](images/rstudio.png){fig-align="center" fig-alt="Screenshot of RStudio showing code and map" width=80%}
 
-## Teaching statistics with R
+## Screenshots of code
 
 ![](images/rstudio-zoom.png){fig-align="center" fig-alt="Screenshot of RStudio showing code" width=80%}
 
-## Teaching statistics with R
+## Code blocks with R Markdown (or Quarto!)
 
 ```{r}
 #| eval: false
@@ -56,9 +86,7 @@ slice_min(bad_health, Percentage, n = 1)
 round(mean(bad_health$Percentage), 1)
 ```
 
-## Teaching statistics with R
-
-Live coding!
+## Live coding!
 
 . . . 
 
