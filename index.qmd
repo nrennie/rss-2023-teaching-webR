@@ -15,6 +15,72 @@ filters:
 
 ## Teaching statistics with R
 
+intro page
+
+## Teaching statistics with R
+
+![](images/rstudio.png){fig-align="center" fig-alt="Screenshot of RStudio showing code and map" width=80%}
+
+## Teaching statistics with R
+
+![](images/rstudio-zoom.png){fig-align="center" fig-alt="Screenshot of RStudio showing code" width=80%}
+
+## Teaching statistics with R
+
+```{r}
+#| eval: false
+#| echo: true
+# read in data
+census <- readxl::read_xlsx("Data/Census2021-health-la.xlsx", skip = 4)
+
+# get local authority map shapefiles
+la_map <- sf::st_read("Data/Local_Authority_Districts_December_2021/LAD_DEC_2021_GB_BGC.shp") 
+
+# calculate percentage that have bad/very bad
+bad_health <- census |> 
+  mutate(Percentage = `Bad health \r\n(age-standardised \r\nproportions)` + 
+           `Very bad health \r\n(age-standardised \r\nproportions)`) |> 
+  select(`Area code`, Percentage) 
+
+# highest / lowest percentage
+slice_max(bad_health, Percentage, n = 1)
+slice_min(bad_health, Percentage, n = 1)
+round(mean(bad_health$Percentage), 1)
+```
+
+## Teaching statistics with R
+
+Live coding!
+
+. . . 
+
+::: columns
+::: {.column}
+
+**Pros**
+
+* shows the process of writing code
+
+* teaches students how to debug code
+
+* demonstrates good programming practices
+
+:::
+
+::: {.column}
+:::
+
+**Cons**
+
+* Switching between windows 
+
+* More pressure as a demonstrator 
+
+* Hard for students to run the code themselves
+
+:::
+
+# webR {background-color="#D9DBDB"}
 
 ## What is webR?
 
@@ -25,6 +91,8 @@ filters:
   - no installation required
   
   - no server required
+  
+## webR examples
   
 ## Try it!
 
@@ -39,13 +107,6 @@ x <- rnorm(100)
 mean(x)
 ```
 
-## How can we use webR for teaching?
-
-## Is it difficult to build?
-
-## Example
-
-
 ## Confidence intervals in webR
 
 ```{webr-r}
@@ -58,6 +119,59 @@ hist(x)
 abline(v = c(ci[1], mean(x), ci[2]), col=c("blue", "red", "blue"), lwd = 2)
 ```
 
+## Adding webR to teaching materials
+
+::: columns
+::: {.column}
+
+* Quarto
+  * Combine code with text
+  * Multiple output formats
+  * *Next generation R Markdown*
+* HTML slides
+* Supports LaTeX 
+
+:::
+
+::: {.column}
+
+![](images/quarto.png){fig-align="center" fig-alt="Quarto logo" width=60%}
+
+:::
+:::
+
+## Adding webR to teaching materials
+
+Install the [webR Quarto extension](https://github.com/coatless/quarto-webr):
+
+```md
+quarto add coatless/quarto-webr
+```
+
+. . . 
+
+Add a webR code block:
+
+````md
+```{webr-r}
+# set a random seed and generate data
+set.seed(123)
+x <- rnorm(100)
+
+# calculate mean
+mean(x)
+```
+````
+
+## Advantages of webR
+
+## Limitations of webR
+
+- hosted not file
+- internet
+- packages (add code example)
+- not a replacemnet for workshops/installing stuff
+
 ## Questions?
 
 ::: columns
@@ -66,6 +180,8 @@ abline(v = c(ci[1], mean(x), ci[2]), col=c("blue", "red", "blue"), lwd = 2)
 <br>
 
 {{< fa brands twitter >}} [@nrennie35](https://twitter.com/nrennie35)
+
+{{< fa brands linkedin >}} [nicola-rennie](https://www.linkedin.com/in/nicola-rennie/)
 
 {{< fa brands github >}} [nrennie](https://github.com/nrennie)
 
@@ -76,7 +192,7 @@ abline(v = c(ci[1], mean(x), ci[2]), col=c("blue", "red", "blue"), lwd = 2)
 :::
 ::: {.column}
 
-![](images/qr_code.png){fig-align="center" fig-alt="QR code" width=70%}
+![](images/qr_code.png){fig-align="center" fig-alt="QR code" width=90%}
 
 :::
 :::
