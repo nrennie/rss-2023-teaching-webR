@@ -209,6 +209,16 @@ quarto add coatless/quarto-webr
 
 . . . 
 
+Add the webR filter to slides:
+
+```md
+format: revealjs
+filters:
+  - webr
+```
+
+## Adding webR to teaching materials
+
 Add a webR code block:
 
 ````md
