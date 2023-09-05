@@ -166,18 +166,6 @@ x <- rnorm(100)
 mean(x)
 ```
 
-## Example: confidence intervals in webR
-
-```{webr-r}
-# calculate confidence interval
-signif <- 0.95
-ci <- confint(lm(x ~ 1), level = signif)
-
-# plot
-hist(x)
-abline(v = c(ci[1], mean(x), ci[2]), col=c("blue", "red", "blue"), lwd = 2)
-```
-
 ## Adding webR to teaching materials
 
 ::: columns
