@@ -5,6 +5,7 @@ author: "Nicola Rennie"
 format:
   LUstyle-revealjs:
     footer: "[nrennie.github.io/teaching-with-webR](https://nrennie.github.io/teaching-with-webR)"
+    logo: "images/CHICASlogo.png"
     auto-stretch: false
 execute: 
   echo: true
