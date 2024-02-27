@@ -4,21 +4,20 @@ subtitle: "RSS International Conference 2023"
 author: "Nicola Rennie"
 format:
   LUstyle-revealjs:
-    disable-layout: true
-    margin-right: "20"
-    footer: "[teaching-with-webr.netlify.app](https://teaching-with-webr.netlify.app/)"
+    footer: "[nrennie.github.io/teaching-with-webR](https://nrennie.github.io/teaching-with-webR)"
+    auto-stretch: false
 execute: 
   echo: true
 filters:
   - webr
 ---
 
-# Teaching statistics with R  {background-color="#D9DBDB"}
+# Teaching statistics with R {background-color="#D9DBDB"}
 
 ## About me
 
 ::: columns
-::: {.column .right}
+::: {.column .right width="70%"}
 
 Lecturer in Health Data Science at [Lancaster Medical School](https://chicas.lancaster-university.uk/).
 
@@ -36,7 +35,7 @@ Blog about R and data science at [nrennie.rbind.io/blog](https://nrennie.rbind.i
 
 :::
 
-::: {.column}
+::: {.column width="30%"}
 
 ![](images/CHICASlogo.png){fig-align="center" fig-alt="CHICAS logo" width=70%}
 
@@ -45,19 +44,19 @@ Blog about R and data science at [nrennie.rbind.io/blog](https://nrennie.rbind.i
 
 ## Teaching statistics with R
 
-Many introductory (and more advanced) statistics courses also include instruction on using R.
+::: {.incremental}
 
-. . . 
+* Many introductory (and more advanced) statistics courses also include instruction on using R.
 
-Many courses teach statistical concepts in lectures, then the practical aspects of using R in separate workshops with smaller groups.
+* Many courses teach statistical concepts in lectures, then the practical aspects of using R in separate workshops with smaller groups.
 
-. . . 
+* Including programming examples in a lecture environment isn't always easy.
 
-Including programming examples in a lecture environment isn't always easy.
+:::
 
 ## Screenshots of RStudio
 
-![](images/rstudio.png){fig-align="center" fig-alt="Screenshot of RStudio showing code and map" width=80%}
+![](images/rstudio.png){fig-align="center" fig-alt="Screenshot of RStudio showing code and map" width="70%"}
 
 ## Screenshots of code
 
@@ -155,7 +154,7 @@ Lots of things!
 
 ## Try it!
 
-[teaching-with-webr.netlify.app](https://teaching-with-webr.netlify.app/)
+[nrennie.github.io/teaching-with-webR](https://nrennie.github.io/teaching-with-webR)
 
 ```{webr-r}
 # set a random seed and generate data
