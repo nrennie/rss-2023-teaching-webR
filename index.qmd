@@ -4,7 +4,7 @@ subtitle: "RSS International Conference 2023"
 author: "Nicola Rennie"
 format:
   LUstyle-revealjs:
-    footer: "[nrennie.github.io/teaching-with-webR](https://nrennie.github.io/teaching-with-webR)"
+    footer: "[nrennie.rbind.io/rss-2023-teaching-webR](https://nrennie.rbind.io/rss-2023-teaching-webR)"
     logo: "images/CHICASlogo.png"
     auto-stretch: false
 execute: 
@@ -155,7 +155,7 @@ Lots of things!
 
 ## Try it!
 
-[nrennie.github.io/teaching-with-webR](https://nrennie.github.io/teaching-with-webR)
+[nrennie.rbind.io/rss-2023-teaching-webR](https://nrennie.rbind.io/rss-2023-teaching-webR)
 
 ```{webr-r}
 # set a random seed and generate data
@@ -250,7 +250,7 @@ webr::install("dplyr")
 
 * New York R Talk from Bob Rudis: [rud.is/w/2023-nyr-webr](https://rud.is/w/2023-nyr-webr/#/things-before-we-begin)
 
-* Source code for these slides: [github.com/nrennie/teaching-with-webR](https://github.com/nrennie/teaching-with-webR)
+* Source code for these slides: [github.com/nrennie/rss-2023-teaching-webR](https://github.com/nrennie/rss-2023-teaching-webR)
 
 ## Questions?
 
